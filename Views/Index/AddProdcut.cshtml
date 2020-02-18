@@ -12,27 +12,32 @@
 @using (Html.BeginForm("AddProdcut", "Index", FormMethod.Post))
 {
 
-<table>
-    <tr>
+    <table>
+        <tr>
 
-            <td>
-                ProductId        : @Html.TextBoxFor(Model => Model.ProductId) </td>
+
+            <td>  ProductId        :</td>
+            <td> @Html.TextBoxFor(Model => Model.ProductId) </td>
         </tr>
-    <tr>
-                <td>ProductName      : @Html.TextBoxFor(Model => Model.ProductName) </td>
+        <tr>
+            <td>ProductName      :</td>
+            <td> @Html.TextBoxFor(Model => Model.ProductName) </td>
         </tr>
-    <tr>
-               <td>ProductPrice     : @Html.TextBoxFor(Model => Model.ProductPrice) </td> 
+        <tr>
+            <td>ProductPrice     :</td>
+            <td> @Html.TextBoxFor(Model => Model.ProductPrice) </td>
         </tr>
-    <tr>
-             <td>   ProductQuantity  : @Html.TextBoxFor(Model => Model.ProductQuantity) </td>
+        <tr>
+            <td>   ProductQuantity  :</td>
+            <td> @Html.TextBoxFor(Model => Model.ProductQuantity) </td>
         </tr>
 
         <tr>
             <td>
-           <input type="submit" />
-        </td>
-            </tr>
-        
-</table>
+                <input type="submit" />
+            </td>
+        </tr>
+
+    </table>
+
 }

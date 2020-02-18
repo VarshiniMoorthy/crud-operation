@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using ProductsDetails.respository;
 using Product.Entity;
@@ -10,7 +7,7 @@ namespace OnlineShopping.Controllers
 {
     public class IndexController : Controller
     {
-        // GET: Index
+        
         ProductsRespository productsRespository;
         public IndexController()
         {
@@ -20,6 +17,7 @@ namespace OnlineShopping.Controllers
         public ActionResult Index()
         {
             IEnumerable<ProductData> productData = productsRespository.GetProductDetails();
+            
             return View(productData);
         }
         public ActionResult AddProdcut()
@@ -32,14 +30,30 @@ namespace OnlineShopping.Controllers
             productsRespository.AddProductDetails(product);
             TempData["Message"] = "product added succesfully";
             return RedirectToAction("Index");
-          
+
         }
         public ActionResult Delete(int id)
         {
             productsRespository.DeleteProduct(id);
             TempData["Message"] = "product deleted succesfully";
             return RedirectToAction("Index");
-            
+
+        }
+        public ActionResult Edit(int id)
+        {
+
+
+
+            ProductData productData = productsRespository.GetProductId(id);
+            return View(productData);
+
+        }
+        [HttpPost]
+        public ActionResult Update(ProductData product)
+        {
+            productsRespository.UpdateProduct(product);
+            TempData["Message"] = "Employee Details Updated Successfully";
+            return RedirectToAction("Index");
         }
     }
 }
