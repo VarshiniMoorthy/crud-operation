@@ -25,12 +25,6 @@ namespace Product.Entity
         {
 
         }
-        public ProductData(ProductData productData)
-        {
-            this.ProductId = productData.ProductId;
-            this.ProductName = productData.ProductName;
-            this.ProductPrice = productData.ProductPrice;
-            this.ProductQuantity = productData.ProductQuantity;
-        }
+        
     }
 }
